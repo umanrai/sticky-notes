@@ -72,6 +72,7 @@ body {
 @media only screen and (max-width: 600px) {
     #app {
         grid-template-columns: repeat(auto-fill, 100%);
+        margin-bottom: 30px;
     }
 
     .search-bar input {
