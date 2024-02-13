@@ -97,6 +97,13 @@ document.addEventListener('keydown', function(event) {
         // Call the addNote() function
         addNote();
     }
+
+    if (event.ctrlKey && event.key === 'Delete') {
+        saveNotes([]);
+        document.querySelectorAll(".note").forEach(function (note) {
+            note.remove()
+        })
+    }
     
 });
 
