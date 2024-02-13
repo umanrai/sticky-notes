@@ -37,3 +37,11 @@ body {
 .add-note:hover {
     background: rgba(0, 0, 0, 0.2);
 }
+
+.search { 
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    width: 100%;
+    border: 1px solid #fff;
+}

@@ -8,7 +8,7 @@ function showNotes() {
     getNotes().forEach((note) => {
         // console.log(note, typeof note)
         const noteElement = createNoteElement(note.id, note.content);
-        notesConatiner.insertBefore(noteElement, addNoteButton);
+        notesConatiner.insertBefore(noteElement, addNoteButton.nextSibling);
         
         noteElement.focus();
     })
@@ -63,7 +63,7 @@ function addNote() {
     };
 
     const noteElement = createNoteElement(noteObject.id, noteObject.content);
-    notesConatiner.insertBefore(noteElement, addNoteButton);
+    notesConatiner.insertBefore(noteElement, addNoteButton.nextSibling);
     noteElement.focus();
     notes.push(noteObject);
     saveNotes(notes);
@@ -118,6 +118,37 @@ function resetAutoFocus()
     }
 }
 
+document.querySelector('.search').addEventListener('keyup', function(event) {
+
+    var searchTerm = event.target.value;
+
+    if (searchTerm.length > 3) {
+
+        searchTerm = searchTerm.toLowerCase();
+
+        var noteCollection = document.querySelectorAll(".note");
+
+        if (noteCollection && noteCollection.length > 0) {
+            noteCollection.forEach(note => {
+                if (note.value.toLowerCase().includes(searchTerm)) {
+                    note.style.display = "block"; 
+                } else {
+                    note.style.display = "none";
+                }
+            });
+        }
+
+    } else {
+        var noteCollection = document.querySelectorAll(".note");
+
+        if (noteCollection && noteCollection.length > 0) {
+            noteCollection.forEach(note => {
+                note.style.display = "block"; 
+            });
+        }
+    }
+    
+});
 
 // CTRL + deL : Empty Notes
 // CTRL + ALT + N = New note
