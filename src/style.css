@@ -42,10 +42,14 @@ body {
     padding: 10px;
     border-radius: 5px;
     margin: 5px;
-    width: 100%;
     border: 1px solid #fff;
 }
 
+.search-bar input{
+    width: 97%;
+    margin: 10px 0 0 10px;
+
+}
 .footer {
     position: fixed;
     bottom: 0;
@@ -63,4 +67,14 @@ body {
 
 .footer span {
     padding: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    #app {
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
+
+    .search-bar input {
+        width: 88%;
+    }
 }
