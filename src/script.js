@@ -12,6 +12,8 @@ function showNotes() {
         
         noteElement.focus();
     })
+
+    showTotalCount()
 }
 
 addNoteButton.addEventListener("click", () => addNote());
@@ -67,9 +69,8 @@ function addNote() {
     noteElement.focus();
     notes.push(noteObject);
     saveNotes(notes);
-    // saveNotes([]);
-    // showNotes()
-// }
+
+    showTotalCount();
 }
 
 function updateNote(id, newContent) {
@@ -89,6 +90,7 @@ function deleteNote(id, element) {
 
     saveNotes(notes);
     notesConatiner.removeChild(element);
+    showTotalCount();
 }
 
 document.addEventListener('keydown', function(event) {
@@ -103,6 +105,8 @@ document.addEventListener('keydown', function(event) {
         document.querySelectorAll(".note").forEach(function (note) {
             note.remove()
         })
+ 
+        showTotalCount();
     }
     
 });
@@ -147,8 +151,11 @@ document.querySelector('.search').addEventListener('keyup', function(event) {
             });
         }
     }
-    
 });
+
+function showTotalCount() {
+    document.querySelector('.total-count').innerHTML = getNotes().length 
+}
 
 // CTRL + deL : Empty Notes
 // CTRL + ALT + N = New note
